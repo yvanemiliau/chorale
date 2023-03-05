@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ membre.appelation }} : photo{% endblock %}
+
+{% block body %}
+
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm">
+				<a href="{{ path('membre_show', {'id': membre.id}) }}" class="bouton-retour"><i class="fas fa-arrow-alt-circle-left"></i></a>
+			</div>
+			<div class="col-sm">
+				<img alt="Generic placeholder image" id="photo" src="{{ photo ? asset('images/' ~ photo) : asset('images/user-bgbl.png') }}" class="profile-picture rounded-pill">
+				<br>
+				<br>
+				<h5>Modifier la photo de: <strong>{{ membre.nom }}</strong></h5>
+				<br>
+			    {{ include('membre/_photo_form.html.twig', {'button_label': 'Modifier'}) }}
+
+			    <div class="float-right">
+			    	{{ include('membre/_delete_form.html.twig') }}
+			    </div>
+			</div>
+			<div class="col-sm"></div>
+
+		</div>
+	</div>
+	<br><br>
+{% endblock %}

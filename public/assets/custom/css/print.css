@@ -1,0 +1,25 @@
+body{
+    background-color: white;
+    color: black;
+}
+
+tr{
+    padding: 10px;
+}
+
+table,td,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table{
+    width: 100%;
+}
+
+.gauche{
+    text-align: left;
+}
+
+.droite{
+    text-align: right;
+}

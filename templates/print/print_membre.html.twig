@@ -1,0 +1,31 @@
+{% extends 'print/print_base.html.twig' %}
+
+{% block title %}Membres chorale AMBODIMERINA{% endblock %}
+
+{% block body %}
+	<h1>Membres chorale AMBODIMERINA</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="droite">Num</th>
+                <th class="gauche">Nom</th>
+                <th class="gauche">Voix</th>
+                <th class="gauche">Téléphone</th>
+                <th class="gauche">Responsable</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td class="droite">{{ loop.index }}</td>
+                <td class="gauche">{{ membre.nom }}</td>
+                <td class="gauche" >{{ membre.voix.abbreviation }}</td>
+                <td class="gauche">{{ membre.telephone }}</td>
+                <td class="gauche">{{ membre.responsable.abbreviation }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

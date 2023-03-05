@@ -1,0 +1,14 @@
+{{ form_start(form) }}
+
+<table>
+    <tr>
+    	<td>Photo</td><td>{{ form_widget(form.photo) }}</td>
+    </tr>
+</table>
+    <br>
+    <div>
+    	<div class="float-left">
+		    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+	    </div>
+    </div>
+{{ form_end(form) }}

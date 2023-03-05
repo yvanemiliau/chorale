@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Chorale AMBODIMERINA{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/themes/litera/bootstrap.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/custom/css/css.css') }}">
+        <link href="{{ asset('assets/fontawesome/css/all.min.css') }}" rel="stylesheet">
+        <style type="text/css">
+            body, td, th {
+                font-size: 15px;
+            }
+
+            .profile-icon {
+                width: 70px;
+                height: 70px;
+                border: 3px solid #fff;
+                box-shadow: 0px 0px 3px #ccc;
+                position: relative;
+                margin: -8px 5px -6px 0;
+                vertical-align: text-top;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+
+            <br>
+        
+    <h5 class="centre">Liste</h5>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Num</th>
+                <th style="text-align: center">Image</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>Anniversaire</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td class="align-middle">{{ loop.index }}</td>
+                <td class="align-middle"><a href="{{ path('membre_show', {'id': membre.id}) }}"><img alt="Generic placeholder image" src="{{ membre.photo ? asset('images/' ~ membre.photo) : asset('images/user-bgbl.png') }}" class="profile-icon rounded-pill"></a></td>
+                <td class="align-middle"><span class="nom-membre" onclick="">{{ membre.nom }}</span></td>
+                <td class="align-middle">{{ membre.adresse }}</td>
+                <td class="align-middle">{{ membre.telephone }}</td>
+                <td class="align-middle">{{ membre.dateAnniversaire ? membre.dateAnniversaire|date('d / m') : '' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun membre trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <script type="text/javascript" src="{{ asset('assets/jQuery/jquery-3.2.1.min.js') }} "></script>
+        <script type="text/javascript" src="{{ asset('assets/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voix index{% endblock %}
+
+{% block body %}
+    <h1>Voix index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Abbreviation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voix in voixes %}
+            <tr>
+                <td>{{ voix.id }}</td>
+                <td>{{ voix.nom }}</td>
+                <td>{{ voix.abbreviation }}</td>
+                <td>
+                    <a href="{{ path('voix_show', {'id': voix.id}) }}">show</a>
+                    <a href="{{ path('voix_edit', {'id': voix.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('voix_new') }}">Create new</a>
+{% endblock %}

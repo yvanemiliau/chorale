@@ -1,0 +1,37 @@
+{% extends 'print/print_base.html.twig' %}
+
+{% block title %}Chorale AMBODIMERINA par sexe{% endblock %}
+
+{% block body %}
+	<h1> AMBODIMERINA par sexe</h1>
+
+    {% for sexe in sexes %}
+    <br>
+    <h1>{{ sexe.nom }}</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="droite">Num</th>
+                <th class="gauche">Nom</th>
+                <th class="gauche">Téléphone</th>
+                <th class="gauche">Responsable</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% set i = 1 %}
+        {% for membre in membres %}
+        	{% if membre.sexe == sexe %}
+		        <tr>
+		            <td class="droite">{{ i }}</td>
+		            <td class="gauche">{{ membre.nom }}</td>
+		            <td class="gauche">{{ membre.telephone }}</td>
+		            <td class="gauche">{{ membre.responsable.abbreviation }}</td>
+		        </tr>
+		        {% set i = i + 1 %}
+		    {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+{% endblock %}

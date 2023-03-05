@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% set mois = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'May', 'Juin', 'Juillet', 'Août', 'Septembre','Octobre','Novembre','Décembre'] %}
+
+{% block title %}{{ membre.appelation }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <br>
+        
+
+        <div class="row profile">
+            <div class="col-lg-3"><a href="{{ path('membre_index') }}" class="bouton-retour"><i class="fas fa-arrow-alt-circle-left"></i></a></div>
+            <div class="col-lg-6">
+                <img alt="Generic placeholder image" id="photo" src="{{ membre.photo ? asset('images/' ~ membre.photo) : asset('images/user-bgbl.png') }}" class="profile-picture rounded-pill">
+                <br>
+                <br>
+                <center>
+                    <h5>{{ membre.nom }}</h5>
+                    <h5><strong>({{ membre.appelation }})</strong></h5>
+                </center>
+                <br>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Num</th>
+                            <td>{{ num }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nom</th>
+                            <td>{{ membre.nom }}</td>
+                        </tr>
+                        <tr>
+                            <th>Adresse</th>
+                            <td>{{ membre.adresse }}</td>
+                        </tr>
+                        <tr>
+                            <th>Téléphone</th>
+                            <td>{{ membre.telephone }}</td>
+                        </tr>
+                        <tr>
+                            <th>Sexe</th>
+                            <td>{{ membre.sexe ? membre.sexe.nom : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Anniversaire</th>
+                            <td>{{ membre.dateAnniversaire ? membre.dateAnniversaire|date('d ') ~ mois[membre.dateAnniversaire|date('m')|number_format-1] : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Voix</th>
+                            <td>{{ membre.voix ? membre.voix.abbreviation : '' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Talents</th>
+                            <td>{{ membre.talents }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{{ membre.confirme ? 'Confirmé' : 'Non confirmé' }}</td>
+                        </tr>
+                        <tr>
+                            <th>Responsable</th>
+                            <td>{{ membre.responsable ? membre.responsable.abbreviation : '' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div>
+            <div class="float-left">
+                <a href="{{ path('membre_edit', {'id': membre.id}) }}" class="btn btn-secondary">Modifier</a>
+            </div>
+            <div class="float-right">
+                {{ include('membre/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        var image = document.getElementById('photo');
+        image.height = image.width;
+    </script>
+{% endblock %}

@@ -1,0 +1,84 @@
+.cel-5 {
+  width: 30%;
+}
+
+.nom-membre:hover {
+  cursor: pointer;
+}
+
+.profile {
+}
+
+.profile-picture {
+    width: 100%;
+    border: 3px solid #fff;
+    box-shadow: 0px 0px 3px #ccc;
+    position: relative;
+    margin: -8px 5px -6px 0;
+    vertical-align: text-top;
+    object-fit: cover;
+}
+.profile-icon {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #fff;
+    box-shadow: 0px 0px 3px #ccc;
+    position: relative;
+    margin: -8px 5px -6px 0;
+    vertical-align: text-top;
+    object-fit: cover;
+}
+.menu-ellipsis {
+  color: #ffffff;
+  font-size: 28px;
+}
+
+.bouton-retour {
+  color: #007700;
+  font-size: 35px;
+}
+
+.bouton-retour:hover {
+  color: #00bb00;
+  font-size: 35px;
+}
+
+.centre{
+  text-align: center;
+}
+
+.inline{
+	display: inline;
+}
+
+.corp{
+	min-height: 600px;
+}
+
+.numAndininy{
+	color: #ee5555;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid; 
+}

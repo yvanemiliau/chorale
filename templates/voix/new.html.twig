@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Voix{% endblock %}
+
+{% block body %}
+    <h1>Create new Voix</h1>
+
+    {{ include('voix/_form.html.twig') }}
+
+    <a href="{{ path('voix_index') }}">back to list</a>
+{% endblock %}

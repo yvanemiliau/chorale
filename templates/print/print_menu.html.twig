@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Imprimer{% endblock %}
+
+{% block body %}
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-sm"></div>
+		<div class="col-sm align-middle">
+			<center>
+				<h3><i class="fas fa-print"></i> Imprimer:</h3>
+				<br>
+				<h5><a href="{{ path('print_membre') }}">Tout les membres</a></h5>
+				<br>
+				<h5><a href="{{ path('print_membre_photo') }}">Tout les membres avec photo</a></h5>
+				<br>
+				<h5><a href="{{ path('print_membre_responsable') }}">Membre par responsable</a></h5>
+				<br>
+				<h5><a href="{{ path('print_membre_sexe') }}">Membre par sexe</a></h5>
+				<br>
+				<h5><a href="{{ path('print_membre_voix') }}">Membre par voix</a></h5>
+				<br>
+				<h5><a href="{{ path('print_membre_anniversaire') }}">Membre par anniversaire</a></h5>
+				<br>
+				<h5><a href="{{ asset('pdf/inscription_chorale.pdf') }}">Fiche d'inscription</a></h5>
+			</center>
+		</div>
+		<div class="col-sm"></div>
+	</div>
+</div>
+
+{% endblock %}

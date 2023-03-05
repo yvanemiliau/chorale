@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ membre.appelation }} : modifier{% endblock %}
+
+{% block body %}
+
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3">
+				<a href="{{ path('membre_show', {'id': membre.id}) }}" class="bouton-retour"><i class="fas fa-arrow-alt-circle-left"></i></a>
+			</div>
+			<div class="col-lg-6">
+				<h5>Modifier membre:</h5>
+				<h5>{{ membre.nom }}</h5>
+				<br>
+			    {{ include('membre/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+			    <div class="float-right">
+			    	{{ include('membre/_delete_form.html.twig') }}
+			    </div>
+			</div>
+			<div class="col-lg-3"></div>
+
+		</div>
+	</div>
+	<br><br>
+{% endblock %}

@@ -1,0 +1,55 @@
+{{ form_start(form) }}
+
+<table width="100%">
+    <tr>
+        <td class="cel-5">Nom</td><td>{{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+        <td class="cel-5">Appelation</td><td>{{ form_widget(form.appelation, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+	    <td class="cel-5" class="cel-5">Adresse</td><td>{{ form_widget(form.adresse, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+    	<td class="cel-5">Téléphone</td><td>{{ form_widget(form.telephone, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+    	<td class="cel-5">Anniverssaire</td>
+        <td>
+            <div class="form-row">
+                <div class="col">
+                    {{ form_widget(form.dateAnniversaire.day, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="col">
+                    {{ form_widget(form.dateAnniversaire.month, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="col">
+                    {{ form_widget(form.dateAnniversaire.year, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+    	<td class="cel-5">Sexe</td><td>{{ form_widget(form.sexe, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+    	<td class="cel-5">Voix</td><td>{{ form_widget(form.voix, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+        <td class="cel-5" class="cel-5">Talents</td><td>{{ form_widget(form.talents, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+        <td class="cel-5" class="cel-5">Confirmé</td><td>{{ form_widget(form.confirme, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+    <tr>
+    	<td class="cel-5">Responsable</td><td>{{ form_widget(form.responsable, { 'attr': {'class': 'form-control'} }) }}</td>
+    </tr>
+</table>
+    <br>
+    <div>
+    	<div class="float-left">
+		    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+	    </div>
+    </div>
+{{ form_end(form) }}

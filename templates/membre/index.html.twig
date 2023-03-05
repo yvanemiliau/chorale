@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membres{% endblock %}
+
+{% block body %}
+    <br>
+        
+    <h5 class="centre">Liste des membres du chorale</h5>
+
+    <a href="{{ path('membre_new') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Nouveau membre</a> <a href="{{ path('print_menu') }}" class="btn btn-secondary"><i class="fas fa-print"></i> Imprimer</a> <a href="{{ path('membre_confirme') }}" class="btn btn-secondary">Confirmé</a><br><br>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Num</th>
+                <th style="text-align: center">Image</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Téléphone</th>
+                <th>Anniversaire</th>
+                <th>Responsable</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for membre in membres %}
+            <tr>
+                <td class="align-middle">{{ loop.index }}</td>
+                <td class="align-middle"><a href="{{ path('membre_show', {'id': membre.id}) }}"><img alt="Generic placeholder image" id="photo" src="{{ membre.photo ? asset('images/' ~ membre.photo) : asset('images/user-bgbl.png') }}" class="profile-icon rounded-pill"></a></td>
+                <td class="align-middle"><span class="nom-membre" onclick="">{{ membre.nom }}</span></td>
+                <td class="align-middle">{{ membre.adresse }}</td>
+                <td class="align-middle">{{ membre.telephone }}</td>
+                <td class="align-middle">{{ membre.dateAnniversaire ? membre.dateAnniversaire|date('d / m') : '' }}</td>
+                <td class="align-middle">{{ membre.responsable.abbreviation }}</td>
+                <td class="align-middle">
+                    <a href="{{ path('membre_show', {'id': membre.id}) }}">Détail</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun membre trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

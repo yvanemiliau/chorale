@@ -1,0 +1,25 @@
+<!-- Modal -->
+<div class="modal fade" id="supprimer-modal" tabindex="-1" role="dialog" aria-labelledby="supprimer" aria-hidden="true">
+	<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+	    <div class="modal-content">
+
+	        <form method="post" action="{{ path('membre_photo_delete', {'id': membre.id}) }}">
+	        	<input type="hidden" name="_method" value="DELETE">
+			    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ membre.id) }}">
+	        	<div class="modal-header">
+	             	<h5>Confirmation</h5>
+	        	</div>
+	        	<div class="modal-body">
+	            	<p>Voulez-vous vraiment supprimer la photo de: <strong>{{ membre.appelation }}?</strong></p>
+	        	</div>
+	        	<div class="modal-footer">
+	            	<input type="button" class="btn text-center justify-content-center btn-outline-success float-left" data-dismiss="modal" value="Non">
+                	<input type="submit" class="btn text-center justify-content-center btn-danger" value="Oui">
+	           </div>
+	        </form>
+	    </div>
+	</div>
+</div>
+<!-- Modal -->
+
+<a data-toggle="modal" data-target="#supprimer-modal" class="btn btn-danger" href="#">Supprimer</a>

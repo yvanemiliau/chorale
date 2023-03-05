@@ -1,0 +1,37 @@
+{% extends 'print/print_base.html.twig' %}
+
+{% block title %}Responsabilité chorale AMBODIMERINA{% endblock %}
+
+{% block body %}
+	<h1>Responsabilité chorale AMBODIMERINA</h1>
+
+    {% for responsable in responsables %}
+    <br>
+    <h1>{{ responsable.abbreviation }}</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="droite">Num</th>
+                <th class="gauche">Nom</th>
+                <th class="gauche">Téléphone</th>
+                <th class="gauche">Adresse</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {% set i = 1 %}
+        {% for membre in membres %}
+        	{% if membre.responsable == responsable %}
+		        <tr>
+		            <td class="droite">{{ i }}</td>
+		            <td class="gauche">{{ membre.nom }}</td>
+		            <td class="gauche">{{ membre.telephone }}</td>
+		            <td class="gauche">{{ membre.adresse }}</td>
+		        </tr>
+		        {% set i = i + 1 %}
+		    {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+{% endblock %}

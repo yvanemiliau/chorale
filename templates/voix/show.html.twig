@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voix{% endblock %}
+
+{% block body %}
+    <h1>Voix</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ voix.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ voix.nom }}</td>
+            </tr>
+            <tr>
+                <th>Abbreviation</th>
+                <td>{{ voix.abbreviation }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('voix_index') }}">back to list</a>
+
+    <a href="{{ path('voix_edit', {'id': voix.id}) }}">edit</a>
+
+    {{ include('voix/_delete_form.html.twig') }}
+{% endblock %}
